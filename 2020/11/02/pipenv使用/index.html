@@ -2,9 +2,9 @@
 <html>
 <head>
   <meta charset="utf-8">
-  <title>第一篇博客 | Epsilono1</title>
-  <meta name="keywords" content=" Example ">
-  <meta name="description" content="第一篇博客 | Epsilono1">
+  <title>pipenv使用（windows） | Epsilono1</title>
+  <meta name="keywords" content=" pipenv , 包管理工具 , 虚拟环境 ">
+  <meta name="description" content="pipenv使用（windows） | Epsilono1">
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
 <meta name="description" content="博主介绍袁会洪，man，毕业于川大，好辣子鸡丁，喜晨跑。从事过机器人编程，弄过python网页爬虫，欲从事爬虫相关工作。专注力两极分化，认真办事时废寝忘食，放松时乐不思蜀，都需要闹钟提醒。 联系方式 QQ: 2213291696 Email: 2213291696@qq.com">
 <meta property="og:type" content="website">
@@ -318,9 +318,9 @@
 </aside>
 <div id="post">
     <div class="pjax">
-        <article id="post-测试类别与标签" class="article article-type-post" itemscope itemprop="blogPost">
+        <article id="post-pipenv使用" class="article article-type-post" itemscope itemprop="blogPost">
     
-        <h1 class="article-title">第一篇博客</h1>
+        <h1 class="article-title">pipenv使用（windows）</h1>
     
     <div class="article-meta">
         
@@ -330,7 +330,7 @@
             <i class="iconfont icon-category"></i>
             
             
-            <a  data-rel="工具">工具</a>
+            <a  data-rel="python爬虫">python爬虫</a>
             
         </span>
         
@@ -338,19 +338,23 @@
         <span class="tag">
             <i class="iconfont icon-tag"></i>
             
-            <a class="color3">Example</a>
+            <a class="color2">pipenv</a>
+            
+            <a class="color1">包管理工具</a>
+            
+            <a class="color5">虚拟环境</a>
             
         </span>
         
     </div>
     <div class="article-meta">
         
-            Created At : <time class="date" title='Updated At: 2020-06-06 01:50:29'>2020-06-05 23:03</time>
+            Created At : <time class="date" title='Updated At: 2020-11-02 19:45:15'>2020-11-02 19:44</time>
         
     </div>
     <div class="article-meta">
         
-        <span>Count:15</span>
+        <span>Count:462</span>
         
         
         <span id="busuanzi_container_page_pv">
@@ -380,7 +384,7 @@
     
     <div class="toc-ref">
     
-        
+        <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#pipenv使用（windows）"><span class="toc-text">pipenv使用（windows）</span></a></li></ol>
     
 <style>
     .left-col .switch-btn,
@@ -396,7 +400,70 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p>这是测试blog，测试category和tag以及top是否正常</p>
+        <h2 id="pipenv使用（windows）"><a href="#pipenv使用（windows）" class="headerlink" title="pipenv使用（windows）"></a>pipenv使用（windows）</h2><ol>
+<li><p>安装<br> pip install pipenv</p>
+</li>
+<li><p>快速创建并进入虚拟环境</p>
+<ul>
+<li>创建项目文件mypro，并cd进文件夹</li>
+<li>自定义虚拟环境路径（可选）<ul>
+<li>项目文件夹下创建 .venv 文件夹</li>
+<li>创建虚拟环境 pipenv –three/two</li>
+</ul>
+</li>
+<li>创建python3环境<br>  pipenv –three</li>
+<li>创建python2环境<br>  pipenv –two</li>
+</ul>
+</li>
+<li><p>修改包安装源</p>
+<ul>
+<li>编辑文件mypro/Pipfile<ul>
+<li>url = “<a href="https://pypi.org/simple&quot;" target="_blank" rel="noopener">https://pypi.org/simple&quot;</a> 替换成国内镜像<br>以下任选一个：<br>url = “<a href="https://pypi.tuna.tsinghua.edu.cn/simple/&quot;" target="_blank" rel="noopener">https://pypi.tuna.tsinghua.edu.cn/simple/&quot;</a><br>url = “<a href="https://pypi.douban.com/simple/&quot;" target="_blank" rel="noopener">https://pypi.douban.com/simple/&quot;</a><br>url = “<a href="http://mirrors.aliyun.com/pypi/simple/&quot;" target="_blank" rel="noopener">http://mirrors.aliyun.com/pypi/simple/&quot;</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p>在mypro目录下激活虚拟环境<br> pipenv shell</p>
+</li>
+<li><p>安装库/包</p>
+<pre><code class="python"> pipenv install requests==2.9.* #兼容的最新2.9.*，使用==时不要指定具体版本，否则无法更新
+ pipenv install requests~=2.9.0 # &gt;=2.9.0, &lt;3.0; ==2.9.*
+ pipenv install requests~=1.2 # &gt;=1.2, &lt;2.0; ==1.* 
+ pipenv install mock-django~=0.6.10 # &gt;=0.6.10, &lt;0.7; ==0.6.*</code></pre>
+</li>
+<li><p>查看已安装的包<br> pipenv graph</p>
+</li>
+<li><p>删除包<br> pipenv uninstall requests<br> pipenv uninstall –all #删除全部</p>
+</li>
+<li><p>退出虚拟环境<br> exit</p>
+</li>
+<li><p>扩展命令</p>
+<ul>
+<li>查看虚拟环境python所在位置<br>  pipenv –py</li>
+<li>查看虚拟环境位置<br>  pipenv –venv</li>
+<li>更改虚拟环境位置<ul>
+<li>先在项目下创建 .venv文件夹（注意不是 .env）</li>
+<li>创建虚拟环境 pipenv –three</li>
+</ul>
+</li>
+<li>查看所有需要更新的包<br>  pipenv update –outdated</li>
+<li>更新指定包<ul>
+<li>更新前查看版本是否被 Pipfile 中限制住了<br>比如最新4.9.3，Pipfile中是 ~= 4.8.0，那就更新不到4.9，需要把 ~= 4.8.0改大点<br>pipenv update requests</li>
+</ul>
+</li>
+<li>更新所有包<br>  pipenv update</li>
+<li>requirements.txt导入<ul>
+<li>如果项目自带requirements.txt，运行<code>pipenv install</code>命令时会自动导入</li>
+<li>其他位置导入<br>  pipenv install -r path/to/requirements.txt</li>
+</ul>
+</li>
+<li>requirements.txt导出<br>  pipenv lock -r</li>
+<li>查看python版本<br>  python –version</li>
+<li>更改python版本<br>  pipenv –python 3.6<br>  pipenv –python 3.7.4<br>  pipenv –python 2.7.14</li>
+<li>删除虚拟环境<br>  pipenv –rm</li>
+</ul>
+</li>
+</ol>
 
       
        <hr><span style="font-style: italic;color: gray;"> 转载请注明来源，欢迎对文章中的引用来源进行考证，欢迎指出任何有错误或不够清晰的表达。可以在下面评论区评论，也可以邮件至 2213291696@qq.com </span>
